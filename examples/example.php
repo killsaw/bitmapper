@@ -1,7 +1,7 @@
 <?php
 
-require 'Bitfield.php';
-require 'BitfieldMapper.php';
+require '../Bitfield.php';
+require '../BitfieldMapper.php';
 
 class UserPrefs extends BitfieldMapper
 {
@@ -33,7 +33,7 @@ function generate_data($entries=10000)
 		$buffer .= $userprefs->toBinary();
 	}
 	
-	if ($fp = fopen('example.data', 'wb+')) {
+	if ($fp = fopen(__DIR__.'/example.data', 'wb+')) {
 		fwrite($fp, $buffer);
 		fclose($fp);
 	}
@@ -43,7 +43,7 @@ function generate_data($entries=10000)
 // Reads UserPref entries back into UserPref objects.
 function read_data_entries()
 {
-	if ($fp = fopen("./example.data", "rb")) {
+	if ($fp = fopen(__DIR__.'/example.data', "rb")) {
 		$i = 1;
 		while(!feof($fp)) {
 			
