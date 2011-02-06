@@ -1,0 +1,1 @@
+An ORM for bitfields. See examples/example.php for actual usage.
